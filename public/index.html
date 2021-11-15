@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SignUp Form - MongoDB</title>
+    <title>Sign Up Form - Yoga Classes</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -91,6 +91,7 @@
           if (isNaN(x) || x < 18 || x > 65) 
           {
             alert("Age must be between 18 to 65");
+            window.location.reload();
             return false;
           } 
           
@@ -99,12 +100,14 @@
           if(slot=="Time Slot")
           {
             alert("Please select a slot");
+            window.location.reload();
             return false;
           }
 
           if (!validateEmail(email)) 
           {
-                alert("Enter a valid email")
+                alert("Enter a valid email");
+                window.location.reload();
                 return false;
           }
 

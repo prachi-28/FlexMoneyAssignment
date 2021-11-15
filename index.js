@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({
     extended: true
 }))
 
-mongoose.connect('mongodb://localhost:27017/myDb', {
+mongoose.connect('mongodb://localhost:27017/YogaDb', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
