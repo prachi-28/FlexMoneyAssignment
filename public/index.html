@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp Form - MongoDB</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+</head>
+
+<body>
+
+
+    <form name="registrationForm" class="container c1 reg" id="form" action="/signup" onsubmit="return(validateForm())" method="POST" >
+
+        <h2 class="pref regHead" >Registration</h2>
+
+        <div class="my-1 mr-sm-2 col-md-12 input-name">
+            <input type="text" class="form-control shadow-none" value="" id="name" name="name" required placeholder="Name"  />
+            <span class="underline-animation"></span>
+        </div>
+
+        <div class="my-1 mr-sm-2 col-md-12 input-name">
+            <input type="text" class="form-control shadow-none" value="" id="email" name="email" required placeholder="Email"  />
+            <span class="underline-animation"></span>
+        </div>
+
+        <div class="my-1 mr-sm-2 col-md-12 input-name">
+            <input type="text" class="form-control shadow-none" value="" id="phno" name="phno" required placeholder="Phone Number"  />
+            <span class="underline-animation"></span>
+        </div>
+
+        <div class="my-1 mr-sm-2 col-md-12 input-name">
+            <input type="text" class="form-control shadow-none" value="" id="age" name="age" required placeholder="Age"  />
+            <span class="underline-animation"></span>
+        </div>
+
+
+        <div class="my-1 mr-sm-2 col-md-12 input-name">
+            <input type="text" class="form-control shadow-none" value="" id="nameOnCard" name="nameOnCard" required placeholder="Name on the card"  />
+            <span class="underline-animation"></span>
+        </div>
+
+        <div class="my-1 mr-sm-2 col-md-12 input-name">
+            <input type="text" class="form-control shadow-none" value="" id="cardNumber" name="cardNumber" required placeholder="Card Number"  />
+            <span class="underline-animation"></span>
+        </div>
+
+        <div class="my-1 mr-sm-2 col-md-12 input-name">
+            <input type="password" class="form-control shadow-none" value="" id="cvv" name="cvv" maxlength="3" minlength="3" required placeholder="CVV"  />
+            <span class="underline-animation"></span>
+        </div>
+
+        <select class="input-name custom-select my-1 mr-sm-2 col-md-12" id="slot" name="selectSlot">
+            <option selected>Time Slot</option>
+            <option value="1">6-7 AM</option>
+            <option value="2">7-8 AM</option>
+            <option value="3">8-9 AM</option>
+            <option value="4">5-6 PM</option>
+            
+           
+        </select>
+
+        <div class="wrapper">
+            <button type="submit" id="submit" class="btn btn-outline-secondary submitbtn" data-action='submit'>
+              Pay now!
+            </button>
+          </div>
+
+    </form>
+
+    
+    <script>
+        function validateEmail(email) 
+        {
+            const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(email);
+        }
+
+        function validateForm() 
+        {
+          let x = document.getElementById("age").value;
+          let email = document.getElementById("email").value;
+          let type = document.getElementById("slot");
+          let slot = type.options[type.selectedIndex].text;
+          let cvv = document.getElementById("cvv").value;
+          if (isNaN(x) || x < 18 || x > 65) 
+          {
+            alert("Age must be between 18 to 65");
+            return false;
+          } 
+          
+
+
+          if(slot=="Time Slot")
+          {
+            alert("Please select a slot");
+            return false;
+          }
+
+          if (!validateEmail(email)) 
+          {
+                alert("Enter a valid email")
+                return false;
+          }
+
+         
+          
+        }
+        </script>
+
+</body>
+
+</html>
